@@ -1,5 +1,6 @@
-Feature: Home Page Security Recommendations Modal
+Feature: Home Page Interaction and Navigation for Insurance Company
 
+  # Test Case 1
   Scenario: Display and close the security recommendations modal on the Home Page
     Given the user navigates to "https://www.lasegunda.com.ar/"
     When the Home Page is loaded
@@ -9,3 +10,49 @@ Feature: Home Page Security Recommendations Modal
     And clicks the "Aceptar" button on the modal
     Then the modal should close
     And the user should be able to interact with the Home Page
+
+  # Test Case 2
+  Scenario: Navigate to "Seguros de Automóviles" from the dropdown "Seguros Individuales"
+    Given the user is on the Home Page
+    And the security recommendations modal is closed
+    When the user clicks on the dropdown "Seguros Individuales"
+    And hovers over "Auto" to display the submenu
+    And clicks on "Seguros de Automóviles"
+    Then the destination page should display information about the main plans and quotes for vehicles
+
+  # Test Case 3
+  Scenario: Display all vehicle plans from the dropdown "Seguros Individuales"
+    Given the user is on the Home Page
+    And the security recommendations modal is closed
+    When the user clicks on the dropdown "Seguros Individuales"
+    And hovers over "Auto" to display the submenu
+    And hovers over "Planes" to display the list of available plans
+    Then the system should show a list of the eight available vehicle plans
+    And upon selecting an item from the list, the user should be redirected to a specific page offering the plan's features and quoting options
+
+  # Test Case 4
+  Scenario: Navigate to "Seguros de Hogar" from the dropdown "Seguros Individuales"
+    Given the user is on the Home Page
+    And the security recommendations modal is closed
+    When the user clicks on the dropdown "Seguros Individuales"
+    And hovers over "Hogar" to display the submenu
+    And clicks on "Seguros de Hogar"
+    Then the destination page should display information about the main plans and quotes for Home Insurance
+
+  # Test Case 5
+  Scenario: Display all Home Insurance plans from the dropdown "Seguros Individuales"
+    Given the user is on the Home Page
+    And the security recommendations modal is closed
+    When the user clicks on the dropdown "Seguros Individuales"
+    And hovers over "Hogar" to display the submenu
+    And hovers over "Planes" to display the list of available plans
+    Then the system should show a list of the four available Home Insurance plans
+    And upon selecting an item from the list, the user should be redirected to a specific page offering the plan's features and quoting options
+
+  # Test Case 6
+  Scenario: Correct functionality of "Reclamo de Terceros" item from the dropdown "Siniestros"
+    Given the user is on the Home Page
+    And the security recommendations modal is closed
+    When the user clicks on the dropdown "Siniestros"
+    And clicks on the item "Reclamo de Terceros"
+    Then the system should redirect to a web page to "Start a Claim" or "Follow a Claim" within the company
