@@ -1,0 +1,11 @@
+Feature: Home Page Security Recommendations Modal
+
+  Scenario: Display and close the security recommendations modal on the Home Page
+    Given the user navigates to "https://www.lasegunda.com.ar/"
+    When the Home Page is loaded
+    Then a blocking modal with security recommendations should be displayed
+    And the modal should include the message "La Segunda Seguros nunca te solicitará información confidencial..."
+    When the user reads the security recommendations
+    And clicks the "Aceptar" button on the modal
+    Then the modal should close
+    And the user should be able to interact with the Home Page
